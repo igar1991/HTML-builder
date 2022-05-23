@@ -19,11 +19,7 @@ async function clearFile(path) {
 
   files.forEach(el=>{
     if(!el.isFile()) {
-      clearFile(path+'/'+el.name).then(()=>{
-        fs.rmdir(path+'/'+el.name, {}, err => {
-          if(err) throw err;
-        });
-      });
+      clearFile(path+'/'+el.name);
     } else {
       fs.unlink(path+'/'+el.name);
     }
